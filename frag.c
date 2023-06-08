@@ -66,15 +66,15 @@ void display_colors(void)
 {
 	for (size_t y = 0; y < HEIGHT; ++y) {
 		for (size_t x = 0; x < WIDTH; ++x) {
-			printf("\033[38;2;%d;%d;%dm",
-					grid[y][x].col.x, grid[y][x].col.y, grid[y][x].col.z);
-			printf("# ");
+			(void)printf("\033[38;2;%d;%d;%dm",
+				     grid[y][x].col.x, grid[y][x].col.y, grid[y][x].col.z);
+			(void)printf("# ");
 		}
-		printf("\n");
+		(void)printf("\n");
 	}
-	printf("\033[2J\n");
-	printf("\033[H\n");
-	printf("\033[0m\n");
+	(void)printf("\033[2J\n");
+	(void)printf("\033[H\n");
+	(void)printf("\033[0m\n");
 }
 void set_colors(void)
 	/* The display_colors() function sets .. *
@@ -94,14 +94,14 @@ int main(void)
 	/* The main() function is the . *
 	 * entry point of our code. ... */
 {
-	printf("\033[2J\n");	// Clear the Screen
-	printf("\033[H\n");		// Set cursor postion to 0, 0
+	(void)printf("\033[2J\n");		// Clear the Screen
+	(void)printf("\033[H\n");		// Set cursor postion to 0, 0
 	for (;;) {
-		set_colors();		// Set the colors
-		display_colors();	// Display the colors
+		(void)set_colors();		// Set the colors
+		(void)display_colors();		// Display the colors
 		iTime += 1;			// Increase iTime
 	}
-	printf("\033[0m\n");	// Reset cursor Color
+	(void)printf("\033[0m\n");		// Reset cursor Color
 	return 0;
 }
 /* .......................... */
